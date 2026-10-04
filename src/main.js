@@ -230,4 +230,97 @@ document.addEventListener("keydown", (event) => {
         projectModal.classList.remove("show");
     }
 
+});/* GitHub API */
+
+const githubForm = document.getElementById("githubForm");
+const githubUsername = document.getElementById("githubUsername");
+const githubResult = document.getElementById("githubResult");
+
+
+githubForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const username = githubUsername.value.trim();
+
+    if (username === "") {
+        githubResult.innerHTML =
+            '<p class="github-error">Please enter a GitHub username.</p>';
+
+        return;
+    }
+
+    githubResult.innerHTML = "<p>Loading...</p>";
+
+
+    try {
+
+        const response = await fetch(
+            `https://api.github.com/users/${username}`
+        );
+
+
+        if (!response.ok) {
+            throw new Error("GitHub user not found.");
+        }
+
+
+        const user = await response.json();
+
+
+        githubResult.innerHTML = `
+            <div class="github-card">
+
+                <img
+                    src="${user.avatar_url}"
+                    alt="${user.login} profile picture"
+                >
+
+                <h3>${user.name || user.login}</h3>
+
+                <p>
+                    ${user.bio || "No bio available."}
+                </p>
+
+                <p>
+                    <strong>Username:</strong>
+                    ${user.login}
+                </p>
+
+                <p>
+                    <strong>Public repositories:</strong>
+                    ${user.public_repos}
+                </p>
+
+                <p>
+                    <strong>Followers:</strong>
+                    ${user.followers}
+                </p>
+
+                <p>
+                    <strong>Following:</strong>
+                    ${user.following}
+                </p>
+
+                <a
+                    href="${user.html_url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View GitHub Profile
+                </a>
+
+            </div>
+        `;
+
+    } catch (error) {
+
+        githubResult.innerHTML = `
+            <p class="github-error">
+                ${error.message}
+            </p>
+        `;
+
+    }
+
 });
