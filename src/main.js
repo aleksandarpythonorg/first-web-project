@@ -111,4 +111,44 @@ contactForm.addEventListener("submit", (event) => {
         contactForm.reset();
     }
 
+});/* Project filter */
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const selectedFilter = button.dataset.filter;
+
+
+        /* Change active button */
+
+        filterButtons.forEach((button) => {
+            button.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+
+        /* Filter projects */
+
+        projectCards.forEach((project) => {
+
+            const projectCategory = project.dataset.category;
+
+            if (
+                selectedFilter === "all" ||
+                selectedFilter === projectCategory
+            ) {
+                project.classList.remove("hidden");
+            } else {
+                project.classList.add("hidden");
+            }
+
+        });
+
+    });
+
 });
