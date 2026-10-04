@@ -148,4 +148,119 @@ footer {
 }main {
     max-width: 1600px;
     margin: 0 auto;
+}#skills {
+    border-top: 1px solid #1e293b;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    flex: 1 1 220px;
+    padding: 30px;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #111827;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.skill-card h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: #cbd5e1;
+}
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #38bdf8;
+    color: #0f172a;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    transform: translateY(-4px);
+}body.light-mode {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+body.light-mode header {
+    border-color: #cbd5e1;
+}
+
+body.light-mode nav ul a {
+    color: #0f172a;
+}
+
+body.light-mode nav ul a:hover {
+    color: #0284c7;
+}
+
+body.light-mode #about,
+body.light-mode #projects,
+body.light-mode #skills,
+body.light-mode #contact {
+    border-color: #cbd5e1;
+}
+
+body.light-mode article,
+body.light-mode .skill-card {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .skill-card p {
+    color: #475569;
+}
+
+#themeToggle {
+    padding: 8px 14px;
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    background: transparent;
+    color: inherit;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#themeToggle:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
 }
