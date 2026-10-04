@@ -657,4 +657,109 @@ body.light-mode #githubUsername {
 body.light-mode .github-card {
     background: #ffffff;
     border-color: #cbd5e1;
+}#weather {
+    border-top: 1px solid #1e293b;
+}
+
+#weatherForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 650px;
+    margin-top: 30px;
+}
+
+#cityInput {
+    flex: 1 1 300px;
+
+    padding: 12px 16px;
+
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    background: #111827;
+    color: #f8fafc;
+
+    font-size: 16px;
+    outline: none;
+}
+
+#cityInput:focus {
+    border-color: #38bdf8;
+}
+
+#weatherForm button {
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #38bdf8;
+    color: #0f172a;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#weatherResult {
+    margin-top: 30px;
+    max-width: 650px;
+}
+
+.weather-card {
+    padding: 30px;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    background: #111827;
+}
+
+.weather-card h3 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+.weather-temperature {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.weather-info div {
+    flex: 1 1 150px;
+    padding: 15px;
+
+    border-radius: 8px;
+    background: #1e293b;
+}
+
+.weather-error {
+    color: #f87171;
+}
+
+body.light-mode #weather {
+    border-color: #cbd5e1;
+}
+
+body.light-mode #cityInput {
+    background: #ffffff;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .weather-card {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .weather-info div {
+    background: #e2e8f0;
 }

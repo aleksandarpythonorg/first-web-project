@@ -323,4 +323,144 @@ githubForm.addEventListener("submit", async (event) => {
 
     }
 
+});/* Weather App */
+
+const weatherForm = document.getElementById("weatherForm");
+const cityInput = document.getElementById("cityInput");
+const weatherResult = document.getElementById("weatherResult");
+
+
+weatherForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const city = cityInput.value.trim();
+
+    if (city === "") {
+        weatherResult.innerHTML = `
+            <p class="weather-error">
+                Please enter a city name.
+            </p>
+        `;
+
+        return;
+    }
+
+    weatherResult.innerHTML = "<p>Loading weather...</p>";
+
+
+    try {
+
+        /*
+         * STEP 1
+         * Find the city coordinates
+         */
+
+        const geocodingResponse = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
+        );
+
+
+        if (!geocodingResponse.ok) {
+            throw new Error("Could not find the city.");
+        }
+
+
+        const geocodingData = await geocodingResponse.json();
+
+
+        if (!geocodingData.results) {
+            throw new Error("City not found.");
+        }
+
+
+        const location = geocodingData.results[0];
+
+        const latitude = location.latitude;
+        const longitude = location.longitude;
+
+
+        /*
+         * STEP 2
+         * Get weather using coordinates
+         */
+
+        const weatherResponse = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m`
+        );
+
+
+        if (!weatherResponse.ok) {
+            throw new Error("Could not get weather data.");
+        }
+
+
+        const weatherData = await weatherResponse.json();
+
+
+        /*
+         * STEP 3
+         * Extract weather data
+         */
+
+        const current = weatherData.current;
+
+        const temperature = current.temperature_2m;
+        const feelsLike = current.apparent_temperature;
+        const humidity = current.relative_humidity_2m;
+        const windSpeed = current.wind_speed_10m;
+
+
+        /*
+         * STEP 4
+         * Display result
+         */
+
+        weatherResult.innerHTML = `
+            <div class="weather-card">
+
+                <h3>
+                    ${location.name}, ${location.country}
+                </h3>
+
+                <div class="weather-temperature">
+                    ${temperature}°C
+                </div>
+
+                <div class="weather-info">
+
+                    <div>
+                        <strong>Feels like</strong>
+                        <br>
+                        ${feelsLike}°C
+                    </div>
+
+                    <div>
+                        <strong>Humidity</strong>
+                        <br>
+                        ${humidity}%
+                    </div>
+
+                    <div>
+                        <strong>Wind</strong>
+                        <br>
+                        ${windSpeed} km/h
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+
+    } catch (error) {
+
+        weatherResult.innerHTML = `
+            <p class="weather-error">
+                ${error.message}
+            </p>
+        `;
+
+    }
+
 });
