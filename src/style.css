@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+header {
+    padding: 20px 8%;
+    border-bottom: 1px solid #1e293b;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul a {
+    color: #f8fafc;
+    text-decoration: none;
+}
+
+nav ul a:hover {
+    color: #38bdf8;
+}
+
+section {
+    min-height: 80vh;
+    padding: 100px 8%;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#home h1 {
+    font-size: 64px;
+    color: #38bdf8;
+}
+
+#home h2 {
+    font-size: 36px;
+}
+
+#home p {
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+#home a {
+    width: fit-content;
+    padding: 12px 24px;
+    background: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#about,
+#projects,
+#contact {
+    border-top: 1px solid #1e293b;
+}
+
+article {
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    max-width: 600px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #1e293b;
+}@media (max-width: 768px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+
+    #home {
+        min-height: 90vh;
+    }
+
+    #home h1 {
+        font-size: 44px;
+    }
+
+    #home h2 {
+        font-size: 28px;
+    }
+
+}@media (min-width: 769px) and (max-width: 1200px) {
+
+    section {
+        padding: 80px 5%;
+    }
+
+    #home h1 {
+        font-size: 56px;
+    }
+
+}main {
+    max-width: 1600px;
+    margin: 0 auto;
+}
