@@ -152,3 +152,58 @@ filterButtons.forEach((button) => {
     });
 
 });
+/* Project modal */
+
+const projectButtons = document.querySelectorAll(".project-details");
+
+const projectModal = document.getElementById("projectModal");
+const closeModal = document.getElementById("closeModal");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalTechnologies = document.getElementById("modalTechnologies");
+const modalGithub = document.getElementById("modalGithub");
+
+
+projectButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const title = button.dataset.title;
+        const description = button.dataset.description;
+        const technologies = button.dataset.technologies;
+
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalTechnologies.textContent = technologies;
+
+        modalGithub.href = "https://github.com/";
+
+        projectModal.classList.add("show");
+
+    });
+
+});
+
+
+closeModal.addEventListener("click", () => {
+    projectModal.classList.remove("show");
+});
+
+
+projectModal.addEventListener("click", (event) => {
+
+    if (event.target === projectModal) {
+        projectModal.classList.remove("show");
+    }
+
+});
+
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+        projectModal.classList.remove("show");
+    }
+
+});

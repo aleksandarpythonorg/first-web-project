@@ -135,36 +135,63 @@
     <div class="projects-container">
 
         <article class="project-card" data-category="web">
-            <h3>First Portfolio</h3>
+    <h3>First Portfolio</h3>
 
-            <p>
-                My first personal portfolio built with HTML and CSS.
-            </p>
+    <p>
+        My first personal portfolio built with HTML and CSS.
+    </p>
 
-            <span>Web</span>
-        </article>
+    <span>Web</span>
+
+    <button
+        class="project-details"
+        data-title="First Portfolio"
+        data-description="My first personal portfolio built with HTML and CSS."
+        data-technologies="HTML, CSS"
+    >
+        View Details
+    </button>
+</article>
 
 
         <article class="project-card" data-category="javascript">
-            <h3>Interactive Portfolio</h3>
+    <h3>Interactive Portfolio</h3>
 
-            <p>
-                A portfolio enhanced with JavaScript interactions.
-            </p>
+    <p>
+        A portfolio enhanced with JavaScript interactions.
+    </p>
 
-            <span>JavaScript</span>
-        </article>
+    <span>JavaScript</span>
+
+    <button
+        class="project-details"
+        data-title="Interactive Portfolio"
+        data-description="A portfolio enhanced with JavaScript interactions and DOM manipulation."
+        data-technologies="HTML, CSS, JavaScript"
+    >
+        View Details
+    </button>
+</article>
 
 
         <article class="project-card" data-category="python">
-            <h3>System Cleaner</h3>
+    <h3>System Cleaner</h3>
 
-            <p>
-                A Python application designed to clean unnecessary files.
-            </p>
+    <p>
+        A Python application designed to clean unnecessary files.
+    </p>
 
-            <span>Python</span>
-        </article>
+    <span>Python</span>
+
+    <button
+        class="project-details"
+        data-title="System Cleaner"
+        data-description="A Python application designed to remove unnecessary files and help keep the system organized."
+        data-technologies="Python"
+    >
+        View Details
+    </button>
+</article>
 
 
         <article class="project-card" data-category="web">
@@ -262,7 +289,34 @@
 
     <button id="backToTop">↑</button>
 
+<div id="projectModal" class="modal">
 
+    <div class="modal-content">
+
+        <button id="closeModal" class="close-modal">
+            ×
+        </button>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <p>
+            <strong>Technologies:</strong>
+            <span id="modalTechnologies"></span>
+        </p>
+
+        <a
+            id="modalGithub"
+            href="#"
+            target="_blank"
+        >
+            GitHub
+        </a>
+
+    </div>
+
+</div>
     <footer>
         <p>© 2026 Aleksandar</p>
     </footer>
